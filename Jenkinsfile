@@ -39,7 +39,7 @@ pipeline {
                             $class: 'AmazonWebServicesCredentialsBinding', credentialsId: "my-aws-cred",accessKeyVariable: 'AWS_ACCESS_KEY_ID',secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                             // AWS Code
                             sh "terraform init"
-                            sh "terraform destroy"
+                            sh "terraform destroy -auto-approve"
                         }
                     }
                 }
@@ -68,7 +68,7 @@ pipeline {
         //                 sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ec2-user@${EC2_PUBLIC_IP}:/home/ec2-user"
         //                 sh 'ssh -o StrictHostKeyChecking=no ec2-user@${EC2_PUBLIC_IP} ${shellCmd}' 
         //                 sh "ssh -o StrictHostKeyChecking=no ec2-user@${EC2_PUBLIC_IP} echo $PASS | docker login -u $USER --password-stdin && docker-compose -f docker-compose.yaml up --detach"
-        //                 */ 
+        //                  
         //                 sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user" // sh dosyasini ec2 ya at
         //                 sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ${ec2Instance}:/home/ec2-user" //sonrada docker-compose.yml dosyasini ec2 ya at
         //                 sh "ssh -o StrictHostKeyChecking=no ${ec2Instance} ${shellCmd}" //ssh ile ec2 da shellcmd yi calistir
