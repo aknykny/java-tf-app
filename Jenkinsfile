@@ -3,7 +3,7 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
+        maven 'my-maven'
         // burada kullanilacak olan plug in leri belirtiyoruz. snippet generator dan olusturoyurz.
         terraform 'my-tf'
     }
