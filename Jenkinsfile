@@ -38,7 +38,7 @@ pipeline {
                         withCredentials([[
                             $class: 'AmazonWebServicesCredentialsBinding', credentialsId: "my-aws-cred",accessKeyVariable: 'AWS_ACCESS_KEY_ID',secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                             // AWS Code
-                            sh "terraform destroy -auto-approve"
+                            sh "terraform destroy -auto-approve -var 'region=us-east-1'"
                         }
                     }
                 }
